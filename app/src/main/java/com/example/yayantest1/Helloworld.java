@@ -24,6 +24,8 @@ public class Helloworld {
         System.out.println(name);
 
 -数组：一系列相同类型的数据的组合
+
+
         int a[]={1,2,3,4};  //定义了一个int 类型的数组，相当于 int[] a={1,2,3,4}
         System.out.println(a[0]); //a[0]=1
         System.out.println(a[3]); //a[3]=4
@@ -34,8 +36,6 @@ public class Helloworld {
         System.out.println(s[1]);
 
 */
-
-
 
 
 /*二.运算:
@@ -80,10 +80,6 @@ public class Helloworld {
  */
 
 
-
-
-
-
 /* 三.流程判断
 (1)if
 -if(条件){语句；}
@@ -120,14 +116,14 @@ public class Helloworld {
         }
 
 */
-
-
-
-
-
-
-
-
+//
+//        Person su = new Person();
+//        su.setName("yayan");
+//        System.out.print(su.getName());
+//        用构造方法初始化对象:
+        Person su=new Person("yayan",25);
+        System.out.println(su.getName());
+        System.out.println(su.getAge());
 
 
 
@@ -135,3 +131,45 @@ public class Helloworld {
     }
 
 }
+
+/*
+面向对象
+1.创建类
+
+ */
+class Person{
+//    定义这个类的字段，private是字段修饰，表示外部无法直接访问这个字段；只能通过类的方法来修改和访问；
+    private String name;
+    private int age;
+//    构造方法：构造方法的名称就是类名，没有返回值，也没有void,调用构造方法，必须使用new 操作符
+    public Person(String name,int age) {
+        this.name=name;
+        this.age = age;
+    }
+
+
+//    定义一个外部能访问的方法，并且这个方法的返回值为string类型
+//this 指代这个类实例化之后的那个对象
+    public String getName() {
+        return this.name;
+        }
+//    定义一个外部能访问的方法，void 表示这个方法的无返回值，但是接受一个string类型的参数，用来修改对象的name这个字段值
+    public void setName(String name) {
+        this.name=name;
+    }
+    public int getAge() {
+        return this.age;
+    }
+    public void setAge(int age){
+        this.age=age;
+    }
+
+
+
+
+
+}
+// 2.实例化对象(在main方法中)
+
+
+
