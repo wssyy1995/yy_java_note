@@ -1,4 +1,5 @@
 package com.example.yayantest1;
+
 import java.util.Scanner;
 
 //一个Java源码(一个java文件)只能定义一个public类型的class，并且class名称和文件名要完全一致
@@ -122,8 +123,26 @@ public class Helloworld {
 //        System.out.print(su.getName());
 //        用构造方法初始化对象:
         Person su=new Person("yayan",25);
-        System.out.println(su.getName());
-        System.out.println(su.getAge());
+//        System.out.println(su.getName());
+//        System.out.println(su.getAge());
+//        su.say();
+//        su.say("yayan2");
+//        su.say(99);
+//        Students xiaoming=new Students("xiaoming",12);
+//        System.out.println(xiaoming.getName());
+
+//        Push p=new Push();
+//        p.pushTaskV3();
+        String appkey = "m2e5088f105ae7";
+        int mod = 15;
+        int hash = 0;
+        for (int i = 0; i < appkey.length(); i++) {
+            hash = 31 * hash + appkey.charAt(i);
+        }
+        System.out.println(hash & mod);
+
+
+
 
 
 
@@ -138,9 +157,11 @@ public class Helloworld {
 
  */
 class Person{
-//    定义这个类的字段，private是字段修饰，表示外部无法直接访问这个字段；只能通过类的方法来修改和访问；
-    private String name;
-    private int age;
+//    定义这个类的字段，private是字段修饰，表示外部无法直接访问这个字段；只能通过类的方法来修改和访问；继承的子类也无法访问这个字段，所以应该用protected
+//    private String name;
+//    private int age;
+    protected String name;
+    protected int age;
 //    构造方法：构造方法的名称就是类名，没有返回值，也没有void,调用构造方法，必须使用new 操作符
     public Person(String name,int age) {
         this.name=name;
@@ -160,16 +181,45 @@ class Person{
     public int getAge() {
         return this.age;
     }
-    public void setAge(int age){
-        this.age=age;
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+
+//        方法重载：多个方法用相同名字，但各自参数不同；返回值类型通常是相同的；调用时，根据参数不同，调用不同的方法
+    public void say(){
+        System.out.println("no parameters");
+    }
+    public void say(String name){
+        System.out.println(name);
+    }
+    public void say(int age){
+        System.out.println(age);
     }
 
 
 
-
-
 }
+
 // 2.实例化对象(在main方法中)
 
+//3.继承: 子类继承父类的字段和方法
+// 格式：class Son extends Person:
 
+class Students extends Person {
+//    子类在继承父类时，会调用父类的无参数构造方法，但是如果父类没有无参数的构造方法，则编译失败，解决方法是在自己的构造方法中，手动调用父类的参数构造方法，并传参数
+    public Students(String name,int age) {
+        super(name,age);
+    }
 
+}
+
+class Push{
+    public void pushTaskV3(int workno,String appkey){
+        System.out.println("this is workno:");
+        System.out.println(workno);
+        System.out.println("this is appkey:");
+        System.out.println(appkey);
+    }
+
+        }

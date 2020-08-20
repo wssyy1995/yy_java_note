@@ -26,7 +26,7 @@ configurations {
     compile.exclude group: "junit", module: "junit"}
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -35,6 +35,7 @@ dependencies {
     implementation 'com.squareup.okio:okio:2.7.0-alpha.lockfree.2'
     implementation 'com.squareup.okhttp3:okhttp:4.7.2'
     implementation 'com.squareup.okio:okio:2.7.0-alpha.lockfree.2'
+    implementation files('libs/util-cipher-sdk-http-1.7.3.RELEASE.jar')
 }
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
